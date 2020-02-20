@@ -22,7 +22,8 @@ function Header() {
               size="mini"
               src="/static/Logo.ico"
               style={{ marginRight: '1em' }}
-            />
+            />{' '}
+            Home
           </Menu.Item>
         </Link>
 

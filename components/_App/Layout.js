@@ -19,9 +19,7 @@ function Layout({ children }) {
         <title>Furniture Store</title>
       </Head>
       <Header />
-      <Container text style={{ paddingTop: '1em' }}>
-        {children}
-      </Container>
+      <Container style={{ paddingTop: '1em' }}>{children}</Container>
     </>
   );
 }
