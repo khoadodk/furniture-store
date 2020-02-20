@@ -6,7 +6,6 @@ export default async (req, res) => {
   try {
     const { method } = req;
     if (method !== 'POST') {
-      res.setHeader('Allow', ['POST']);
       return res.status(405).end(`Method ${method} Not Allowed`);
     }
     const { name, price, description, mediaUrl } = req.body;

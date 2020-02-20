@@ -12,6 +12,7 @@ import {
 } from 'semantic-ui-react';
 
 import baseUrl from '../utils/baseUrl';
+import catchErrors from '../utils/catchErrors';
 
 function CreateProduct() {
   const INITIAL_PRODUCT = {
@@ -25,6 +26,13 @@ function CreateProduct() {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    //check to see if the value in every fields of product is true, allow submit
+    const isProduct = Object.values(product).every(ele => Boolean(ele));
+    isProduct ? setDisabled(false) : setDisabled(true);
+  }, [product]);
 
   const handleChange = e => {
     const { name, value, files } = e.target;
@@ -65,7 +73,7 @@ function CreateProduct() {
       setProduct(INITIAL_PRODUCT);
       setSuccess(true);
     } catch (err) {
-      console.log(err);
+      catchErrors(err, setError);
     } finally {
       setLoading(false);
     }
@@ -77,7 +85,12 @@ function CreateProduct() {
         <Icon name="add" color="orange" />
         Create New Product
       </Header>
-      <Form onSubmit={handleSubmit} success={success} loading={loading}>
+      <Form
+        onSubmit={handleSubmit}
+        success={success}
+        loading={loading}
+        error={Boolean(error)}
+      >
         <Message
           success
           icon="check"
@@ -133,7 +146,7 @@ function CreateProduct() {
           icon="pencil alternate"
           content="Submit"
           type="submit"
-          disabled={loading}
+          disabled={disabled || loading}
         />
       </Form>
     </>
