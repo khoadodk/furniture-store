@@ -1,0 +1,32 @@
+{
+  "name": "furniture-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt": "^3.0.8",
+    "js-cookie": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.1",
+    "next": "^9.2.2",
+    "nookies": "^2.0.8",
+    "nprogress": "^0.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-stripe-checkout": "^2.6.3",
+    "semantic-ui-react": "^0.87.3",
+    "shortid": "^2.2.14",
+    "stripe": "^7.15.0",
+    "uuid": "^3.4.0",
+    "validator": "^11.1.0"
+  }
+}
