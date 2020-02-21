@@ -7,7 +7,6 @@ Router.onRouteChangeStart = () => NProgess.start();
 Router.onRouteChangeComplete = () => NProgess.done();
 
 function Header() {
-  const user = true;
   const router = useRouter();
   const isActive = route => {
     return route === router.pathname;
@@ -34,46 +33,46 @@ function Header() {
           </Menu.Item>
         </Link>
 
-        {user && (
-          <Link href="/create">
-            <Menu.Item header active={isActive('/create')}>
-              <Icon name="add square" size="large" />
-              Create
+        {/* {user && ( */}
+        <Link href="/create">
+          <Menu.Item header active={isActive('/create')}>
+            <Icon name="add square" size="large" />
+            Create
+          </Menu.Item>
+        </Link>
+        {/* )} */}
+
+        {/* {user ? ( */}
+        <>
+          <Link href="/account">
+            <Menu.Item header active={isActive('/account')}>
+              <Icon name="user" size="large" />
+              Account
             </Menu.Item>
           </Link>
-        )}
 
-        {user ? (
-          <>
-            <Link href="/account">
-              <Menu.Item header active={isActive('/account')}>
-                <Icon name="user" size="large" />
-                Account
-              </Menu.Item>
-            </Link>
-
-            <Menu.Item header>
-              <Icon name="sign out" size="large" />
-              Logout
+          <Menu.Item header>
+            <Icon name="sign out" size="large" />
+            Logout
+          </Menu.Item>
+        </>
+        {/* ) : ( */}
+        <>
+          <Link href="/login">
+            <Menu.Item header active={isActive('/login')}>
+              <Icon name="sign in" size="large" />
+              Login
             </Menu.Item>
-          </>
-        ) : (
-          <>
-            <Link href="/login">
-              <Menu.Item header active={isActive('/login')}>
-                <Icon name="sign in" size="large" />
-                Login
-              </Menu.Item>
-            </Link>
+          </Link>
 
-            <Link href="/signup">
-              <Menu.Item header active={isActive('/signup')}>
-                <Icon name="signup" size="large" />
-                Signup
-              </Menu.Item>
-            </Link>
-          </>
-        )}
+          <Link href="/signup">
+            <Menu.Item header active={isActive('/signup')}>
+              <Icon name="signup" size="large" />
+              Signup
+            </Menu.Item>
+          </Link>
+        </>
+        {/* )} */}
       </Container>
     </Menu>
   );
