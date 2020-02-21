@@ -83,7 +83,7 @@ const Login = () => {
             icon="signup"
             type="submit"
             color="orange"
-            content="Signup"
+            content="Login"
             disabled={disabled || loading}
           />
         </Segment>
