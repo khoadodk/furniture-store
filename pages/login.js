@@ -90,7 +90,7 @@ const Login = () => {
       </Form>
       <Message attached="bottom" warning>
         Don't have an account?{' '}
-        <Link href="/login">
+        <Link href="/signup">
           <a>Sign up here</a>
         </Link>
       </Message>
