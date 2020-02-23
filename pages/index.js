@@ -1,14 +1,29 @@
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
 import ProductList from '../components/Index/ProductList';
+import ProductPagination from '../components/Index/ProductPagination';
 
-const Home = ({ products }) => {
-  return <ProductList products={products} />;
+const Home = ({ products, totalPages }) => {
+  return (
+    <>
+      <ProductList products={products} />
+      <ProductPagination totalPages={totalPages} />{' '}
+    </>
+  );
 };
 
-Home.getInitialProps = async () => {
-  const response = await axios.get(`${baseUrl}/api/products`);
-  return { products: response.data };
+Home.getInitialProps = async ctx => {
+  console.log(ctx.query);
+  const page = ctx.query.page ? ctx.query.page : '1';
+  const size = 10;
+  const url = `${baseUrl}/api/products`;
+  const payload = { params: { page, size } };
+
+  const {
+    data: { products, totalPages }
+  } = await axios.get(url, payload);
+
+  return { products, totalPages };
 };
 
 export default Home;
