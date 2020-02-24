@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
-import Cart from '../../../models/Cart';
 import Product from '../../../models/Product';
+import Cart from '../../../models/Cart';
 import { connectDb } from '../../../utils/connectDb';
 
 connectDb();

@@ -4,9 +4,10 @@ import jwt from 'jsonwebtoken';
 import Cart from '../../../models/Cart';
 import Product from '../../../models/Product';
 import { connectDb } from '../../../utils/connectDb';
-connectDb();
 
 const { ObjectId } = mongoose.Types;
+
+connectDb();
 
 export default async (req, res) => {
   try {
@@ -37,20 +38,20 @@ export default async (req, res) => {
   }
 };
 
-// Get products from the user's cart
 const handleGetRequest = async ({ userId }, res) => {
   try {
     const cart = await Cart.findOne({ user: userId }).populate({
       path: 'products.product',
       model: 'Product'
     });
+
     res.status(200).json(cart.products);
   } catch (error) {
     console.error(error);
     res.status(403).send('Please login again.');
   }
 };
-// Update user's cart
+
 const handlePutRequest = async ({ userId, body }, res) => {
   try {
     const { quantity, productId } = body;

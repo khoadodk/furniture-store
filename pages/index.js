@@ -13,7 +13,6 @@ const Home = ({ products, totalPages }) => {
 };
 
 Home.getInitialProps = async ctx => {
-  console.log(ctx.query);
   const page = ctx.query.page ? ctx.query.page : '1';
   const size = 10;
   const url = `${baseUrl}/api/products`;

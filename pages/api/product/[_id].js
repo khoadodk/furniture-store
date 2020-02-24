@@ -1,5 +1,6 @@
 import { connectDb } from '../../../utils/connectDb';
 import Product from '../../../models/Product';
+import Cart from '../../../models/Cart';
 
 connectDb();
 
@@ -25,8 +26,15 @@ const handleGetRequest = async (req, res) => {
 };
 
 const handleDeleteRequest = async (req, res) => {
+  const { _id } = req.query;
   try {
-    const product = await Product.findByIdAndDelete(req.query._id);
+    const product = await Product.findByIdAndDelete(_id);
+    //remove the product from cart, as the product deleted | cascade delete
+    await Cart.updateMany(
+      { 'products.product': _id },
+      { $pull: { products: { product: _id } } }
+    );
+
     res.status(204).json({ product });
   } catch (error) {
     console.error(error);
