@@ -14,7 +14,7 @@ import {
 import baseUrl from '../utils/baseUrl';
 import catchErrors from '../utils/catchErrors';
 
-function CreateProduct() {
+const CreateProduct = () => {
   const INITIAL_PRODUCT = {
     name: '',
     description: '',
@@ -151,6 +151,6 @@ function CreateProduct() {
       </Form>
     </>
   );
-}
+};
 
 export default CreateProduct;

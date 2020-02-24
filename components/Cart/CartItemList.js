@@ -8,7 +8,7 @@ import {
 } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
 
-function CartItemList({ products, user, success, handleRemoveFromCart }) {
+const CartItemList = ({ products, user, success, handleRemoveFromCart }) => {
   const router = useRouter();
 
   const mapCartProductsToItems = products => {
@@ -69,6 +69,6 @@ function CartItemList({ products, user, success, handleRemoveFromCart }) {
   }
 
   return <Item.Group items={mapCartProductsToItems(products)} divided />;
-}
+};
 
 export default CartItemList;

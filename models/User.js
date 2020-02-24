@@ -1,27 +1,28 @@
 import mongoose from 'mongoose';
+
 const { String } = mongoose.Schema.Types;
 
 const UserSchema = new mongoose.Schema(
   {
     name: {
-      type: String,
-      required: true
+      required: true,
+      type: String
     },
     email: {
-      type: String,
+      required: true,
       unique: true,
-      required: true
+      type: String
     },
     password: {
-      type: String,
       required: true,
+      type: String,
       select: false
     },
     role: {
       type: String,
       required: true,
       default: 'user',
-      enum: ['user', 'admin', 'root']
+      enum: ['admin', 'user', 'root']
     }
   },
   {
@@ -29,5 +30,4 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-//use the existing model or create a new one (ERROR: 'Cannot overwrite `User` model once compiled.',)
 export default mongoose.models.User || mongoose.model('User', UserSchema);

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import baseUrl from '../../utils/baseUrl';
 
-function ProductAttributes({ description, _id, user }) {
+const ProductAttributes = ({ description, _id, user }) => {
   const router = useRouter();
   const [modal, setModal] = useState(false);
 
@@ -51,6 +51,6 @@ function ProductAttributes({ description, _id, user }) {
       )}
     </>
   );
-}
+};
 
 export default ProductAttributes;

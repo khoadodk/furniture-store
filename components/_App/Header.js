@@ -8,7 +8,7 @@ import { handleLogout } from '../../utils/auth';
 Router.onRouteChangeStart = () => NProgess.start();
 Router.onRouteChangeComplete = () => NProgess.done();
 
-function Header({ user }) {
+const Header = ({ user }) => {
   const router = useRouter();
   const isRootOrAdmin =
     (user && user.role === 'root') || (user && user.role === 'admin');
@@ -81,6 +81,6 @@ function Header({ user }) {
       </Container>
     </Menu>
   );
-}
+};
 
 export default Header;

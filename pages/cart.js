@@ -8,7 +8,7 @@ import CartItemList from '../components/Cart/CartItemList';
 import CartSummary from '../components/Cart/CartSummary';
 import baseUrl from '../utils/baseUrl';
 
-function Cart({ products, user }) {
+const Cart = ({ products, user }) => {
   const [cartProducts, setCartProducts] = useState(products);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -54,7 +54,7 @@ function Cart({ products, user }) {
       />
     </Segment>
   );
-}
+};
 
 Cart.getInitialProps = async ctx => {
   const { token } = parseCookies(ctx);

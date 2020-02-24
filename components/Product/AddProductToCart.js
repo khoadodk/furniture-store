@@ -7,7 +7,7 @@ import cookie from 'js-cookie';
 import baseUrl from '../../utils/baseUrl';
 import catchErrors from '../../utils/catchErrors';
 
-function AddProductToCart({ user, productId }) {
+const AddProductToCart = ({ user, productId }) => {
   const [quantity, setQuantity] = useState(1);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -73,6 +73,6 @@ function AddProductToCart({ user, productId }) {
       }
     />
   );
-}
+};
 
 export default AddProductToCart;
