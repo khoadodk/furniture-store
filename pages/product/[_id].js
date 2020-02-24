@@ -7,7 +7,7 @@ const Product = ({ product, user }) => {
   return (
     <>
       <ProductSummary {...product} user={user} />
-      <ProductAttributes {...product} />
+      <ProductAttributes {...product} user={user} />
     </>
   );
 };
