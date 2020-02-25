@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Header, Button, Modal } from 'semantic-ui-react';
 import axios from 'axios';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import baseUrl from '../../utils/baseUrl';
 
@@ -25,6 +26,10 @@ const ProductAttributes = ({ description, _id, user }) => {
 
       {isRootOrAdmin && (
         <>
+          <Link href="/edit/[_id]" as={`/edit/${_id}`}>
+            <Button icon="edit outline" color="blue" content="Edit" />
+          </Link>
+
           <Button
             icon="trash alternate outline"
             color="red"
@@ -36,6 +41,7 @@ const ProductAttributes = ({ description, _id, user }) => {
             <Modal.Content>
               <p>Are you sure you want to delete this product?</p>
             </Modal.Content>
+
             <Modal.Actions>
               <Button content="Cancel" onClick={() => setModal(false)} />
               <Button
