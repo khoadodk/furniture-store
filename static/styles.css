@@ -10,6 +10,7 @@ body {
 
 #menu {
   background: var(--menuBg);
+  border-radius: 0;
 }
 
 /* Overrides default styled accordion styles (too much bottom padding) */

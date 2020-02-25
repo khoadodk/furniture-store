@@ -14,6 +14,7 @@ import formatDate from '../../utils/formatDate';
 
 const AccountOrders = ({ orders }) => {
   const router = useRouter();
+
   const mapOrdersToPanels = orders => {
     return orders.map(order => ({
       key: order._id,

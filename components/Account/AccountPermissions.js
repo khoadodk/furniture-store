@@ -36,9 +36,8 @@ const AccountPermissions = () => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {users.map(user => (
-            <UserPermission {...user} key={user._id} />
-          ))}
+          {users &&
+            users.map(user => <UserPermission {...user} key={user._id} />)}
         </Table.Body>
       </Table>
     </div>

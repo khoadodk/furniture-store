@@ -7,6 +7,7 @@ import cookie from 'js-cookie';
 import CartItemList from '../components/Cart/CartItemList';
 import CartSummary from '../components/Cart/CartSummary';
 import baseUrl from '../utils/baseUrl';
+import catchErrors from '../utils/calculateCartTotal';
 
 const Cart = ({ products, user }) => {
   const [cartProducts, setCartProducts] = useState(products);
