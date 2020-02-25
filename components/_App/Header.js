@@ -31,6 +31,13 @@ const Header = ({ user }) => {
           </Menu.Item>
         </Link>
 
+        <Link href="/search">
+          <Menu.Item header active={isActive('/search')}>
+            <Icon name="search" size="large" />
+            Search
+          </Menu.Item>
+        </Link>
+
         <Link href="/cart">
           <Menu.Item header active={isActive('/cart')}>
             <Icon name="cart" size="large" />

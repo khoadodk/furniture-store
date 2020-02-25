@@ -4,7 +4,7 @@ import Product from '../../models/Product';
 connectDb();
 
 export default async (req, res) => {
-  const { page, size } = req.query;
+  const { page, size, searchQuery } = req.query;
   //Convert querystring values to number
   const pageNum = Number(page);
   const pageSize = Number(size);
@@ -20,6 +20,13 @@ export default async (req, res) => {
     products = await Product.find()
       .skip(skips)
       .limit(pageSize);
+  }
+
+  //Search Page
+  if (searchQuery) {
+    products = await Product.find({
+      name: { $regex: searchQuery, $options: 'i' }
+    });
   }
 
   res.status(200).json({ products, totalPages });

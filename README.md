@@ -10,6 +10,7 @@ A e-commerce store built with Next.js Express and MongoDB
 
 ## To-do List
 
+- <del>Add search feature</del>
+- Contact Us with email
 - Google login
-- Add search feature to home page
-- Contact Us with SendGrid
+- Update/Edit Products

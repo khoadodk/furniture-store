@@ -7,7 +7,7 @@ const Home = ({ products, totalPages }) => {
   return (
     <>
       <ProductList products={products} />
-      <ProductPagination totalPages={totalPages} />{' '}
+      <ProductPagination totalPages={totalPages} />
     </>
   );
 };
