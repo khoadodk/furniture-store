@@ -1,7 +1,7 @@
 Demo: https://furniture-store.now.sh/
 
 A e-commerce store built with Next.js Express and MongoDB
-![Image description](homepage.png)
+(![Image description](https://github.com/khoadodk/furniture-store/blob/master/homepage.PNG))
 
 ## This project demonstrates my proficiency in the following:
 
